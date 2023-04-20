@@ -32,7 +32,7 @@ obj/
 [Bb]uild/
 *.csproj
 *.sln
-
+*.meta
 
 #puzzledata.txt
 
