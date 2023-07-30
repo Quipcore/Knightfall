@@ -1,22 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Blaster : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public GameObject blasterboltPrefab;
+    public GameObject tipOfBlaster;
+    
+    [SerializeField] private const float Cooldown = 0.25f;
+    [SerializeField] private float cooldownTimer;
+    [SerializeField] private bool canShoot = true;
+    
+    
+    //------------------------------------------------------------------------------------------------------------------
+    
     void Start()
     {
-        
+        cooldownTimer = Cooldown;
     }
-
-    // Update is called once per frame
+    
+    //------------------------------------------------------------------------------------------------------------------
+    
     void Update()
     {
+        cooldownTimer -= Time.deltaTime;
+
+        if (cooldownTimer <= 0f)
+        {
+            canShoot = true;
+        }
     }
+    
+    //------------------------------------------------------------------------------------------------------------------
 
     public void Shoot()
     {
-        Debug.Log("Firing Blaster");
+        if (!canShoot)
+        {
+            return;
+        }
+        canShoot = false;
+        cooldownTimer = Cooldown;
+        Instantiate(blasterboltPrefab, tipOfBlaster.transform.position, tipOfBlaster.transform.rotation);
     }
 }
