@@ -1,4 +1,5 @@
-//taken from https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+//Movement parts taken from https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+//Rotation parts taken from ChatGPT
 
 using System;
 using System.Collections;
