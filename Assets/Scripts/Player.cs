@@ -3,19 +3,21 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Blaster blaster;
     
-    private const float Speed = 2.0f;
+    
     private const float Gravity = -9.8f;
     private const float RotationSpeed = 500f;
     private const float VerticalRotationLimit = 80f; // Limit the camera's vertical rotation to prevent flipping
     private const int MouseOneIndex = 0;
     
-    [SerializeField] private float  verticalRotation = 0f;
+    [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float verticalRotation = 0f;
 
     //------------------------------------------------------------------------------------------------------------------
     
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         
         Vector3 move = transform.right * x + transform.forward * y;
 
-        controller.Move(Time.deltaTime * Speed * move);
+        controller.Move(Time.deltaTime * speed * move);
 
         if (!controller.isGrounded)
         {

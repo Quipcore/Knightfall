@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Bolt : MonoBehaviour
 {
     
-    [SerializeField] private float lifeTime = 2f;
+    [SerializeField] private float lifeTime = 10f;
     
     private const float Speed = 10f;
     
@@ -18,5 +19,12 @@ public class Bolt : MonoBehaviour
         }
         
         transform.position += transform.forward * Time.deltaTime * Speed;
+    }
+    
+    //------------------------------------------------------------------------------------------------------------------
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Destroy(gameObject);
     }
 }

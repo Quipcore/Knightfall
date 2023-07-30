@@ -6,7 +6,8 @@ public class Blaster : MonoBehaviour
     public GameObject blasterboltPrefab;
     public GameObject tipOfBlaster;
     
-    [SerializeField] private const float Cooldown = 0.25f;
+    private const float Cooldown = 0.25f;
+    
     [SerializeField] private float cooldownTimer;
     [SerializeField] private bool canShoot = true;
     
